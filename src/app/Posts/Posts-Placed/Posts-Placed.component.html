@@ -1,0 +1,23 @@
+<mat-accordion multi = "true" *ngIf= "posts.length >0">
+  <mat-expansion-panel *ngFor=" let post of posts">
+  <mat-expansion-panel-header
+  aria-placeholder="User Name"
+  >
+  {{post.userName}}
+  </mat-expansion-panel-header>
+
+  <br>
+  Title: {{post.Title}}
+  <br>
+
+  <br>
+
+  {{post.PlacedPost}}
+  <mat-action-row>
+  <!-- <button mat-button color="primary">edit </button> -->
+  <button mat-button color="warn" (click)="onDelete(post.id)">delete </button>
+  <!-- <button mat-button color ="primary"> save post </button> -->
+  </mat-action-row>
+  </mat-expansion-panel>
+  </mat-accordion>
+  <p *ngIf="posts.length ==0">No posts created yet</p>

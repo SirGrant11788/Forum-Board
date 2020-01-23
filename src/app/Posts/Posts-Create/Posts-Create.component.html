@@ -1,0 +1,39 @@
+<p>Create your post here please</p>
+<mat-card>
+<form class = "login" name = "login" (submit)="onAddPost(postPost)" #postPost="ngForm" >
+<!-- <mat-form-field>
+<input matInput type ="text" ngModel name="enteredUserName"
+placeholder ="User Name"
+required
+minlength="8"
+pattern ="^[a-zA-Z0-9\s_-]+$"
+#enteredUserName ="ngModel"/>
+<mat-error *ngIf="enteredUserName.invalid">{{enteredUserNameError}}</mat-error>
+</mat-form-field > -->
+<br>
+<mat-form-field>
+<input matInput
+minlength="5"
+ngModel name ="enteredTitle"
+placeholder="Post Title" required
+#enteredTitle ="ngModel"/>
+<mat-error *ngIf="enteredTitle.invalid">{{enteredTitleError}}</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field>
+<textarea matInput ngModel name = "enteredPost"
+ng-bind-html
+required
+placeholder="Post Contents"
+maxlength="100"
+#enteredPost ="ngModel"></textarea>
+<mat-error *ngIf="enteredPost.invalid">{{enteredPostError}}</mat-error>
+</mat-form-field >
+<br>
+<p> You entered the following post</p>
+<div [innerHtml]= 'output'></div>
+<br>
+<button mat-raised-button type = "submit" >Post Now</button>
+</form>
+</mat-card>
+<hr>
